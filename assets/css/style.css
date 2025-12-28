@@ -1,0 +1,301 @@
+/* =========================================
+   GLOBAL & RESET
+   ========================================= */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    background-color: #FFFBF2; /* Warna Cream Sesuai Gambar */
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column; /* Susun Navbar (atas) dan Container (bawah) */
+}
+
+/* =========================================
+   NAVBAR (LOGO POJOK KIRI)
+   ========================================= */
+.navbar {
+    width: 100%;
+    padding: 20px 40px;
+    background-color: transparent; /* Transparan agar menyatu dengan background */
+}
+
+.logo {
+    font-size: 24px;
+    color: #FF8C00; /* Warna Orange */
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.logo span {
+    font-weight: 700;
+}
+
+/* =========================================
+   MAIN CONTAINER (Agar Kartu di Tengah)
+   ========================================= */
+.main-container {
+    flex: 1; /* Mengambil sisa tinggi layar */
+    display: flex;
+    justify-content: center;
+    align-items: center; /* Posisi vertikal tengah */
+    padding: 20px;
+}
+
+/* =========================================
+   KARTU LOGIN / REGISTER
+   ========================================= */
+.login-card {
+    background: white;
+    width: 100%;
+    max-width: 480px; /* Sedikit lebih lebar agar lega */
+    padding: 40px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Bayangan halus */
+    border: 1px solid #f0f0f0;
+}
+
+.login-card h2 {
+    font-size: 24px;
+    color: #333;
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.login-card p.subtitle {
+    color: #888;
+    font-size: 14px;
+    margin-bottom: 30px;
+}
+
+/* =========================================
+   FORM ELEMENTS
+   ========================================= */
+.form-group {
+    margin-bottom: 20px;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 8px;
+    font-weight: 500;
+}
+
+.required { color: red; }
+
+/* Style Input Biasa */
+.form-control {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    outline: none;
+    transition: border-color 0.3s;
+    height: 48px; /* Tinggi seragam */
+}
+
+.form-control:focus {
+    border-color: #3CCF4E;
+}
+
+/* Password Wrapper */
+.input-wrapper {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #999;
+    cursor: pointer;
+}
+
+/* Link Lupa Password */
+.forgot-password-link {
+    display: block;
+    text-align: right;
+    font-size: 13px;
+    color: #666;
+    text-decoration: none;
+    margin-top: -10px; /* Naik sedikit mendekati input */
+    margin-bottom: 20px;
+    font-weight: 500;
+}
+
+/* =========================================
+   INPUT NO HP (MODERN & TERPISAH)
+   ========================================= */
+.phone-group-modern {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Jarak pisah antara kode dan nomor */
+    width: 100%;
+}
+
+/* Kotak Kiri (Bendera + Kode) */
+.country-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    padding: 0 10px;
+    width: 110px;
+    height: 48px;
+    position: relative;
+}
+
+.country-box img {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+    border-radius: 2px;
+}
+
+.country-code {
+    border: none;
+    background: transparent;
+    font-size: 14px;
+    font-weight: 500;
+    color: #333;
+    outline: none;
+    appearance: none;
+    flex: 1;
+    cursor: pointer;
+    z-index: 2;
+    height: 100%;
+}
+
+.chevron-icon {
+    font-size: 10px;
+    color: #888;
+    pointer-events: none;
+}
+
+.phone-group-modern {
+    display: grid; /* Menggunakan Grid agar lebih presisi */
+    grid-template-columns: 110px 1fr; /* Kolom 1: 110px, Kolom 2: Sisa ruang penuh */
+    gap: 15px; /* Jarak antar kotak */
+    width: 100%; /* Lebar wadah penuh */
+    align-items: center; /* Posisi vertikal tengah */
+}
+
+.country-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    padding: 0 10px;
+    height: 48px;
+    position: relative;
+    width: 100%; /* Mengisi penuh kolom 110px grid */
+    transition: border-color 0.3s;
+}
+
+.phone-input-modern {
+    /* PENTING: flex: 1 artinya dia akan memanjang otomatis mengisi sisa ruang kosong */
+    flex: 1;
+
+    /* Pastikan tingginya sama dengan kotak kiri */
+    height: 48px;
+
+    /* Pastikan tidak ada konflik lebar */
+    width: 100%;
+    min-width: 0;    /* Mencegah error layout di browser tertentu */
+
+    /* Styling standar */
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    padding: 0 15px;
+    outline: none;
+    transition: border-color 0.3s;
+}
+
+
+.phone-input-modern:focus {
+    border-color: #3CCF4E;
+}
+
+.country-box img {
+    width: 20px;
+    height: auto;
+    margin-right: 8px;
+    border-radius: 2px;
+}
+
+/* =========================================
+   BUTTONS
+   ========================================= */
+.btn {
+    display: block;
+    width: 100%;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    font-weight: 600;
+    cursor: pointer;
+    border: none;
+    margin-bottom: 15px;
+    text-decoration: none;
+    text-align: center;
+}
+
+.btn-primary {
+    background-color: #3CCF4E;
+    color: white;
+}
+.btn-primary:hover { background-color: #35b845; }
+
+.btn-secondary {
+    background-color: #E6F9E8;
+    color: #3CCF4E;
+}
+.btn-secondary:hover { background-color: #d4f0d7; }
+
+.divider {
+    display: flex;
+    align-items: center;
+    text-align: center;
+    color: #888;
+    font-size: 13px;
+    margin: 20px 0;
+}
+.divider::before, .divider::after {
+    content: ''; flex: 1; border-bottom: 1px solid #eee;
+}
+.divider::before { margin-right: 10px; }
+.divider::after { margin-left: 10px; }
+
+.btn-google {
+    background-color: white;
+    border: 1px solid #ddd;
+    color: #555;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+.btn-google:hover { background-color: #f9f9f9; }
+
+/* =========================================
+   RESPONSIVE MOBILE
+   ========================================= */
+@media screen and (max-width: 576px) {
+    .navbar { padding: 15px 20px; }
+    .logo { font-size: 20px; }
+    .main-container { padding: 15px; align-items: flex-start; }
+    .login-card { padding: 25px 20px; }
+    .login-card h2 { font-size: 20px; }
+}

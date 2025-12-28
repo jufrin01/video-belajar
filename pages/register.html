@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar Akun - Videobelajar</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/style.css">
+</head>
+<body>
+
+<nav class="navbar">
+    <a href="login.html" class="logo">video<span>belajar</span></a>
+</nav>
+
+<div class="main-container">
+    <div class="login-card">
+        <h2>Pendaftaran Akun</h2>
+        <p class="subtitle">Yuk, daftarkan akunmu sekarang juga!</p>
+
+        <form action="#">
+
+            <div class="form-group">
+                <label>Nama Lengkap <span class="required">*</span></label>
+                <input type="text" class="form-control" placeholder="Contoh: Budi Santoso" required>
+            </div>
+
+            <div class="form-group">
+                <label>E-Mail <span class="required">*</span></label>
+                <input type="email" class="form-control" placeholder="nama@email.com" required>
+            </div>
+
+            <div class="form-group">
+                <label>No. Hp <span class="required">*</span></label>
+
+                <div class="phone-group-modern">
+
+                    <div class="country-box">
+                        <img src="https://flagcdn.com/w40/id.png" alt="Flag" id="flag-icon">
+                        <select class="country-code" id="country-select">
+                            <option value="id">+62</option>
+                            <option value="us">+1</option>
+                        </select>
+                        <i class="fa-solid fa-chevron-down chevron-icon"></i>
+                    </div>
+
+                    <input type="tel" class="form-control phone-input-modern" placeholder="81234567890" required>
+
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Kata Sandi <span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="password" class="form-control" required>
+                    <i class="fa-solid fa-eye-slash toggle-password"></i>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Konfirmasi Kata Sandi <span class="required">*</span></label>
+                <div class="input-wrapper">
+                    <input type="password" class="form-control" required>
+                    <i class="fa-solid fa-eye-slash toggle-password"></i>
+                </div>
+            </div>
+
+            <a href="#" class="forgot-password-link">Lupa Password?</a>
+
+            <button type="submit" class="btn btn-primary">Daftar</button>
+            <a href="login.html" class="btn btn-secondary">Masuk</a>
+        </form>
+
+        <div class="divider">atau</div>
+
+        <button class="btn btn-google">
+            <img src="https://www.svgrepo.com/show/475656/google-color.svg" alt="Google Logo" width="20">
+            Daftar dengan Google
+        </button>
+    </div>
+</div>
+
+<script src="../assets/js/script.js"></script>
+
+</body>
+</html>
