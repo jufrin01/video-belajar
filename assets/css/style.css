@@ -9,19 +9,22 @@
 }
 
 body {
-    background-color: #FFFBF2; /* Warna Cream Sesuai Gambar */
+    background-color: #FFFBF2; /* Warna Cream */
     min-height: 100vh;
     display: flex;
-    flex-direction: column; /* Susun Navbar (atas) dan Container (bawah) */
+    flex-direction: column;
 }
 
 /* =========================================
-   NAVBAR (LOGO POJOK KIRI)
+   NAVBAR (LOGO KIRI - PROFIL KANAN)
    ========================================= */
 .navbar {
     width: 100%;
     padding: 20px 40px;
-    background-color: transparent; /* Transparan agar menyatu dengan background */
+    background-color: transparent;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .logo {
@@ -35,47 +38,216 @@ body {
     font-weight: 700;
 }
 
-/* =========================================
-   MAIN CONTAINER (Agar Kartu di Tengah)
-   ========================================= */
-.main-container {
-    flex: 1; /* Mengambil sisa tinggi layar */
+/* Style Foto Profil di Navbar */
+.nav-right {
     display: flex;
-    justify-content: center;
-    align-items: center; /* Posisi vertikal tengah */
-    padding: 20px;
+    align-items: center;
+    gap: 15px;
+}
+
+.greeting-text {
+    font-size: 14px;
+    color: #555;
+    font-weight: 500;
+    display: none; /* Hidden di Mobile */
+}
+
+/* Tampil di Desktop */
+@media screen and (min-width: 768px) {
+    .greeting-text { display: block; }
+}
+
+.profile-img {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid #3CCF4E;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
 }
 
 /* =========================================
-   KARTU LOGIN / REGISTER
+   HOME CONTAINER
    ========================================= */
+.home-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 40px;
+    flex: 1;
+}
+
+/* =========================================
+   HERO SECTION (BANNER ATAS) - BARU!
+   ========================================= */
+.hero-section {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 40px 0 60px 0; /* Jarak atas bawah */
+    gap: 40px;
+}
+
+.hero-text {
+    flex: 1; /* Mengambil 50% ruang */
+}
+
+.hero-text h1 {
+    font-size: 42px;
+    color: #333;
+    font-weight: 700;
+    line-height: 1.2;
+    margin-bottom: 15px;
+}
+
+.hero-text span {
+    color: #3CCF4E; /* Hijau Branding */
+}
+
+.hero-text p {
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 30px;
+    line-height: 1.6;
+    max-width: 90%;
+}
+
+.hero-buttons {
+    display: flex;
+    gap: 15px;
+}
+
+.btn-hero {
+    display: inline-block;
+    width: auto; /* Agar tombol tidak full width */
+    padding: 12px 30px;
+}
+
+.hero-image {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end; /* Gambar rata kanan */
+}
+
+.hero-image img {
+    width: 100%;
+    max-width: 500px; /* Batas maksimal gambar */
+    height: auto;
+}
+
+/* =========================================
+   COURSE SECTION
+   ========================================= */
+.section-title {
+    font-size: 24px;
+    font-weight: 700;
+    color: #333;
+    margin-bottom: 24px;
+    margin-top: 10px;
+}
+
+.course-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 24px;
+    padding-bottom: 40px;
+}
+
+.course-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #f0f0f0;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.03);
+    transition: all 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0,0,0,0.08);
+    border-color: #3CCF4E;
+}
+
+.course-image {
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    background-color: #eee;
+}
+
+.course-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+}
+
+.course-info h3 {
+    font-size: 17px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+
+.course-info p {
+    font-size: 13px;
+    color: #888;
+    margin-bottom: 20px;
+    line-height: 1.5;
+}
+
+.course-footer {
+    margin-top: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-top: 1px solid #f9f9f9;
+    padding-top: 15px;
+}
+
+.price { color: #3CCF4E; font-weight: 700; font-size: 16px; }
+.rating { font-size: 13px; color: #FF8C00; font-weight: 600; display: flex; align-items: center; gap: 5px; }
+
+/* =========================================
+   LOGIN & REGISTER & UTILS
+   ========================================= */
+.main-container { flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
 .login-card {
     background: white;
     width: 100%;
-    max-width: 480px; /* Sedikit lebih lebar agar lega */
+    max-width: 480px;
     padding: 40px;
     border-radius: 8px;
     text-align: center;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.03); /* Bayangan halus */
+    box-shadow: 0 4px 20px
+    rgba(0,0,0,0.03);
     border: 1px solid #f0f0f0;
 }
-
-.login-card h2 {
-    font-size: 24px;
+.login-card h2 { font-size: 24px;
     color: #333;
     margin-bottom: 8px;
     font-weight: 700;
 }
-
 .login-card p.subtitle {
     color: #888;
     font-size: 14px;
     margin-bottom: 30px;
 }
 
-/* =========================================
-   FORM ELEMENTS
-   ========================================= */
 .form-group {
     margin-bottom: 20px;
     text-align: left;
@@ -89,9 +261,9 @@ body {
     font-weight: 500;
 }
 
-.required { color: red; }
-
-/* Style Input Biasa */
+.required {
+    color: red;
+}
 .form-control {
     width: 100%;
     padding: 12px 15px;
@@ -100,14 +272,12 @@ body {
     font-size: 14px;
     outline: none;
     transition: border-color 0.3s;
-    height: 48px; /* Tinggi seragam */
+    height: 48px;
 }
-
 .form-control:focus {
     border-color: #3CCF4E;
 }
 
-/* Password Wrapper */
 .input-wrapper {
     position: relative;
 }
@@ -117,127 +287,19 @@ body {
     right: 15px;
     top: 50%;
     transform: translateY(-50%);
-    color: #999;
-    cursor: pointer;
+    color: #999; cursor: pointer;
 }
 
-/* Link Lupa Password */
-.forgot-password-link {
-    display: block;
+.forgot-password-link { display: block;
     text-align: right;
     font-size: 13px;
     color: #666;
     text-decoration: none;
-    margin-top: -10px; /* Naik sedikit mendekati input */
+    margin-top: -10px;
     margin-bottom: 20px;
     font-weight: 500;
 }
 
-/* =========================================
-   INPUT NO HP (MODERN & TERPISAH)
-   ========================================= */
-.phone-group-modern {
-    display: flex;
-    align-items: center;
-    gap: 15px; /* Jarak pisah antara kode dan nomor */
-    width: 100%;
-}
-
-/* Kotak Kiri (Bendera + Kode) */
-.country-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background: #fff;
-    padding: 0 10px;
-    width: 110px;
-    height: 48px;
-    position: relative;
-}
-
-.country-box img {
-    width: 20px;
-    height: auto;
-    margin-right: 8px;
-    border-radius: 2px;
-}
-
-.country-code {
-    border: none;
-    background: transparent;
-    font-size: 14px;
-    font-weight: 500;
-    color: #333;
-    outline: none;
-    appearance: none;
-    flex: 1;
-    cursor: pointer;
-    z-index: 2;
-    height: 100%;
-}
-
-.chevron-icon {
-    font-size: 10px;
-    color: #888;
-    pointer-events: none;
-}
-
-.phone-group-modern {
-    display: grid; /* Menggunakan Grid agar lebih presisi */
-    grid-template-columns: 110px 1fr; /* Kolom 1: 110px, Kolom 2: Sisa ruang penuh */
-    gap: 15px; /* Jarak antar kotak */
-    width: 100%; /* Lebar wadah penuh */
-    align-items: center; /* Posisi vertikal tengah */
-}
-
-.country-box {
-    display: flex;
-    align-items: center;
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    background: #fff;
-    padding: 0 10px;
-    height: 48px;
-    position: relative;
-    width: 100%; /* Mengisi penuh kolom 110px grid */
-    transition: border-color 0.3s;
-}
-
-.phone-input-modern {
-    /* PENTING: flex: 1 artinya dia akan memanjang otomatis mengisi sisa ruang kosong */
-    flex: 1;
-
-    /* Pastikan tingginya sama dengan kotak kiri */
-    height: 48px;
-
-    /* Pastikan tidak ada konflik lebar */
-    width: 100%;
-    min-width: 0;    /* Mencegah error layout di browser tertentu */
-
-    /* Styling standar */
-    border: 1px solid #ddd;
-    border-radius: 6px;
-    padding: 0 15px;
-    outline: none;
-    transition: border-color 0.3s;
-}
-
-
-.phone-input-modern:focus {
-    border-color: #3CCF4E;
-}
-
-.country-box img {
-    width: 20px;
-    height: auto;
-    margin-right: 8px;
-    border-radius: 2px;
-}
-
-/* =========================================
-   BUTTONS
-   ========================================= */
 .btn {
     display: block;
     width: 100%;
@@ -256,14 +318,18 @@ body {
     background-color: #3CCF4E;
     color: white;
 }
-.btn-primary:hover { background-color: #35b845; }
 
+.btn-primary:hover {
+    background-color: #35b845;
+}
 .btn-secondary {
     background-color: #E6F9E8;
     color: #3CCF4E;
 }
-.btn-secondary:hover { background-color: #d4f0d7; }
 
+.btn-secondary:hover {
+    background-color: #d4f0d7;
+}
 .divider {
     display: flex;
     align-items: center;
@@ -273,29 +339,76 @@ body {
     margin: 20px 0;
 }
 .divider::before, .divider::after {
-    content: ''; flex: 1; border-bottom: 1px solid #eee;
+    content: '';
+    flex: 1;
+    border-bottom: 1px solid #eee;
 }
-.divider::before { margin-right: 10px; }
-.divider::after { margin-left: 10px; }
 
+.divider::before {
+    margin-right: 10px;
+}
+
+.divider::after {
+    margin-left: 10px;
+}
 .btn-google {
     background-color: white;
     border: 1px solid #ddd;
-    color: #555;
-    display: flex;
+    color: #555; display: flex;
     align-items: center;
     justify-content: center;
     gap: 10px;
 }
-.btn-google:hover { background-color: #f9f9f9; }
+
+.btn-google:hover {
+    background-color: #f9f9f9;
+}
+
+/* Phone Modern */
+.phone-group-modern {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 15px;
+    width: 100%;
+    align-items: center;
+}
+.country-box {
+    display: flex;
+    align-items: center;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    background: #fff;
+    padding: 0 10px;
+    height: 48px; position: relative; width: 100%; }
+.country-box img { width: 20px; height: auto; margin-right: 8px; border-radius: 2px; }
+.country-code { border: none; background: transparent; font-size: 14px; font-weight: 500; color: #333; outline: none; appearance: none; flex: 1; cursor: pointer; z-index: 2; height: 100%; }
+.chevron-icon { font-size: 10px; color: #888; pointer-events: none; }
+.phone-input-modern { flex: 1; height: 48px; width: 100%; min-width: 0; border: 1px solid #ddd; border-radius: 6px; padding: 0 15px; outline: none; transition: border-color 0.3s; }
+.phone-input-modern:focus { border-color: #3CCF4E; }
 
 /* =========================================
    RESPONSIVE MOBILE
    ========================================= */
-@media screen and (max-width: 576px) {
+@media screen and (max-width: 768px) {
     .navbar { padding: 15px 20px; }
     .logo { font-size: 20px; }
+
+    /* Login Page */
     .main-container { padding: 15px; align-items: flex-start; }
     .login-card { padding: 25px 20px; }
-    .login-card h2 { font-size: 20px; }
+
+    /* Home Page & Hero Responsive */
+    .home-container { padding: 20px; }
+
+    .hero-section {
+        flex-direction: column-reverse; /* Gambar pindah ke atas di HP, text di bawah */
+        text-align: center;
+        gap: 30px;
+        padding-top: 20px;
+    }
+
+    .hero-text h1 { font-size: 28px; }
+    .hero-text p { margin: 0 auto 20px auto; } /* Tengahin paragraf */
+    .hero-buttons { justify-content: center; } /* Tombol di tengah */
+    .hero-image { justify-content: center; }
 }
